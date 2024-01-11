@@ -59,3 +59,31 @@
 .hide {
     display: none;
 }
+
+.human-score {
+    display: block;
+    position: absolute;
+    top:47%;
+    left:40%;
+    transform: translate(-50%,-50%);
+}
+
+.comp-score {
+    display: block;
+    position: absolute;
+    top:47%;
+    left:87%;
+    transform: translate(-50%,-50%);
+}
+
+.reset-button {
+    display: block;
+    position: absolute;
+    background-color: red;
+    min-height: 6vw;
+    min-width: 9vw;
+    border-radius: 40px;
+    top:65%;
+    left:50%;
+    transform: translate(-50%,-50%);
+}
