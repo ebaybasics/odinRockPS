@@ -1,6 +1,15 @@
 * {
     margin: 0;
     padding: 0;
-    background-color: black;
     color:aliceblue;
+}
+
+.background-img {
+    background-image: url('images/screen-battle.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    width: 100vw;
+    height: 100vh;
+    position:relative;
 }
