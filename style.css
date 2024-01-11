@@ -47,6 +47,15 @@
 
 }
 
+.comp-rock, .comp-paper, .comp-scissors {
+    display: block;
+    position: absolute;
+    top:60%;
+    left:74%;
+    transform: translate(-50%,-50%);
+
+}
+
 .hide {
     display: none;
 }

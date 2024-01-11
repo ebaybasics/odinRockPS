@@ -1,57 +1,6 @@
 'strict'
-
-const rButton = document.querySelector('.rock-button');
-const pButton = document.querySelector('.paper-button');
-const sButton = document.querySelector('.scissors-button');
-
-const humanRock = document.querySelector('.human-rock');
-const humanPaper = document.querySelector('.human-paper');
-const humanScissors = document.querySelector('.human-scissors');
-
-
-rButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (humanPaper.classList.contains('hide') && humanScissors.classList.contains('hide')) {
-        humanRock.classList.toggle('hide');
-    } else if (!humanPaper.classList.contains('hide')) {
-        humanPaper.classList.toggle('hide');
-        humanRock.classList.toggle('hide');
-    }
-    else if (!humanScissors.classList.contains('hide')) {
-        humanScissors.classList.toggle('hide');
-        humanRock.classList.toggle('hide');
-    }
-    
-})
-
-pButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (humanRock.classList.contains('hide') && humanScissors.classList.contains('hide')) {
-        humanPaper.classList.toggle('hide');
-    } else if (!humanRock.classList.contains('hide')) {
-        humanRock.classList.toggle('hide');
-        humanPaper.classList.toggle('hide');
-    }
-    else if (!humanScissors.classList.contains('hide')) {
-        humanScissors.classList.toggle('hide');
-        humanPaper.classList.toggle('hide');
-    }
-})
-
-sButton.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (humanPaper.classList.contains('hide') && humanRock.classList.contains('hide')) {
-        humanScissors.classList.toggle('hide');
-    } else if (!humanPaper.classList.contains('hide')) {
-        humanPaper.classList.toggle('hide');
-        humanScissors.classList.toggle('hide');
-    }
-    else if (!humanRock.classList.contains('hide')) {
-        humanScissors.classList.toggle('hide');
-        humanRock.classList.toggle('hide');
-    }
-})
-
+let PLAYER_CHOICE = -1;
+let QUIT = 0;
 
 
 
@@ -59,6 +8,7 @@ sButton.addEventListener('click', (e) => {
 const compChoice = () => {
     return Math.trunc(Math.random()*3) + 1;
 };
+
 
 const gameRun = () => {
     const pNumChoice = prompt('Rock Paper or Scissors (1,2,3)');
@@ -95,7 +45,105 @@ const gameRun = () => {
             console.log(`You chose ${playerChoice}, He chose ${cChoice} and you ${result}`);
             break;   
     }
+    quit.addEventListener('click', e => {
+        e.preventDefault();
+        QUIT = 1;
+    })
 }
+
+// gameRun();
+
+// ---------- DOM Manipulation -------- //
+
+const rButton = document.querySelector('.rock-button');
+const pButton = document.querySelector('.paper-button');
+const sButton = document.querySelector('.scissors-button');
+
+const humanRock = document.querySelector('.human-rock');
+const humanPaper = document.querySelector('.human-paper');
+const humanScissors = document.querySelector('.human-scissors');
+
+const compRock = document.querySelector('.comp-rock');
+const compPaper = document.querySelector('.comp-paper');
+const compScissors = document.querySelector('.comp-scissors');
+
+const quit = document.querySelector('.quit');
+
+
+rButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    PLAYER_CHOICE = 1;
+    humanRock.classList.remove('hide');
+    humanScissors.classList.add('hide');
+    humanPaper.classList.add('hide');
+
+    const res = compChoice();
+    console.log(res);
+    if (res === 1 ) {
+        compRock.classList.remove('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 2) {
+        compRock.classList.add('hide');
+        compScissors.classList.remove('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 3) {
+        compRock.classList.add('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.remove('hide');
+    }
+
+
+    
+})
+
+pButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    PLAYER_CHOICE = 2;
+    humanRock.classList.add('hide');
+    humanScissors.classList.remove('hide');
+    humanPaper.classList.add('hide');
+
+    const res = compChoice();
+    console.log(res);
+    if (res === 1 ) {
+        compRock.classList.remove('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 2) {
+        compRock.classList.add('hide');
+        compScissors.classList.remove('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 3) {
+        compRock.classList.add('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.remove('hide');
+    }
+})
+
+sButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    PLAYER_CHOICE = 3;
+    humanRock.classList.add('hide');
+    humanScissors.classList.add('hide');
+    humanPaper.classList.remove('hide');
+
+    const res = compChoice();
+    console.log(res);
+    if (res === 1 ) {
+        compRock.classList.remove('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 2) {
+        compRock.classList.add('hide');
+        compScissors.classList.remove('hide');
+        compPaper.classList.add('hide');
+    } else if (res === 3) {
+        compRock.classList.add('hide');
+        compScissors.classList.add('hide');
+        compPaper.classList.remove('hide');
+    }
+})
 
 
 
