@@ -1,11 +1,64 @@
+'strict'
+
+const rButton = document.querySelector('.rock-button');
+const pButton = document.querySelector('.paper-button');
+const sButton = document.querySelector('.scissors-button');
+
+const humanRock = document.querySelector('.human-rock');
+const humanPaper = document.querySelector('.human-paper');
+const humanScissors = document.querySelector('.human-scissors');
 
 
-// let playersChoice = prompt('Rock Paper or Scissors (1,2,3)');
+rButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (humanPaper.classList.contains('hide') && humanScissors.classList.contains('hide')) {
+        humanRock.classList.toggle('hide');
+    } else if (!humanPaper.classList.contains('hide')) {
+        humanPaper.classList.toggle('hide');
+        humanRock.classList.toggle('hide');
+    }
+    else if (!humanScissors.classList.contains('hide')) {
+        humanScissors.classList.toggle('hide');
+        humanRock.classList.toggle('hide');
+    }
+    
+})
 
+pButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (humanRock.classList.contains('hide') && humanScissors.classList.contains('hide')) {
+        humanPaper.classList.toggle('hide');
+    } else if (!humanRock.classList.contains('hide')) {
+        humanRock.classList.toggle('hide');
+        humanPaper.classList.toggle('hide');
+    }
+    else if (!humanScissors.classList.contains('hide')) {
+        humanScissors.classList.toggle('hide');
+        humanPaper.classList.toggle('hide');
+    }
+})
+
+sButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (humanPaper.classList.contains('hide') && humanRock.classList.contains('hide')) {
+        humanScissors.classList.toggle('hide');
+    } else if (!humanPaper.classList.contains('hide')) {
+        humanPaper.classList.toggle('hide');
+        humanScissors.classList.toggle('hide');
+    }
+    else if (!humanRock.classList.contains('hide')) {
+        humanScissors.classList.toggle('hide');
+        humanRock.classList.toggle('hide');
+    }
+})
+
+
+
+
+// -------------------- GAME LOGIC ---------------------- //
 const compChoice = () => {
     return Math.trunc(Math.random()*3) + 1;
 };
-
 
 const gameRun = () => {
     const pNumChoice = prompt('Rock Paper or Scissors (1,2,3)');

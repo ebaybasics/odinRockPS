@@ -13,3 +13,40 @@
     height: 100vh;
     position:relative;
 }
+
+.btn-layout{
+    position: absolute;
+    background-color: blue;
+
+}
+
+.rock-button {
+    top:90%;
+    left:20%;
+    transform: translate(-50%,-50%);
+}
+
+.paper-button {
+    top:90%;
+    left:25%;
+    transform: translate(-50%,-50%);
+}
+
+.scissors-button {
+    top:90%;
+    left:30%;
+    transform: translate(-50%,-50%);
+}
+
+.human-rock, .human-paper, .human-scissors {
+    display: block;
+    position: absolute;
+    top:60%;
+    left:27%;
+    transform: translate(-50%,-50%);
+
+}
+
+.hide {
+    display: none;
+}
